@@ -16,6 +16,17 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+from app_ss import api
+
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    # url(r'^admin/', admin.site.urls),
+    url(r'', admin.site.urls),
+    url(r'listservers', api.listservers),
+    url(r'online', api.online),
+    url(r'offline', api.offline),
+    url(r'update_traffic', api.update_traffic),
+    url(r'register_device',api.register_device),
+    url(r'reward_traffic',api.reward_traffic),
+    url(r'cost_traffic',api.cost_traffic),
+
 ]
