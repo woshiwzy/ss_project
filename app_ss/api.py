@@ -26,7 +26,7 @@ def online(request):
     host = Host.objects.get(id=id)
     host.online = (host.online + 1)
     host.save()
-    return HttpResponse(outputJsonData("\"success\""), content_type="application/json")
+    return HttpResponse(outputJsonData(json.dumps(host.to_dict())), content_type="application/json")
 
 
 # 离线
@@ -41,7 +41,7 @@ def offline(request):
         host.online = oldline - 1
 
     host.save()
-    return HttpResponse(outputJsonData("\"success\""), content_type="application/json")
+    return HttpResponse(outputJsonData(json.dumps(host.to_dict())), content_type="application/json")
 
 
 # 更新流量
@@ -76,7 +76,7 @@ def update_traffic(request):
 def reward_traffic(request):
     uuid = request.POST['uuid']
     rewardsize = int(request.POST['rewardsize'])
-    descption= request.POST['descption']
+    descption = request.POST['descption']
     user = User.objects.get(uuid=uuid)
     if user:
         if rewardsize > 200:  # reward should not above 200
@@ -86,7 +86,8 @@ def reward_traffic(request):
 
         print("===>>>>奖励：" + str(rewardsize) + " M")
 
-        RewardHistory.objects.create(uuid=uuid,reward_size=rewardsize,descption=descption,username=user.username).save()
+        RewardHistory.objects.create(uuid=uuid, reward_size=rewardsize, descption=descption,
+                                     username=user.username).save()
 
         user.remaining_bytes = user.remaining_bytes + (rewardsize * 1024)
         user.save()
@@ -97,19 +98,31 @@ def reward_traffic(request):
                                 content_type="application/json")
         return response
 
+
 @csrf_exempt
 def cost_traffic(request):
     uuid = request.POST['uuid']
-    cost_size = int(request.POST['cost_size'])
+    cost_size = math.fabs(int(request.POST['cost_size']))
     user = User.objects.get(uuid=uuid)
     print("===>>>>消耗：" + str(cost_size) + " KB")
     if user:
-        user.remaining_bytes = user.remaining_bytes -cost_size;
+        afterUpdate = long(user.remaining_bytes - cost_size)
+        if afterUpdate > 0:
+            user.remaining_bytes = afterUpdate
+            user.enable = True
+        else:
+            user.remaining_bytes = 0
+            user.enable = False
+            user.disableMessage = "Out of Traffic"
+            user.disableMessageCn = "没有流量了"
+
+        user.usedByte = user.usedByte + cost_size
         user.save()
         res = json.dumps(user.to_dict())
         return HttpResponse(outputJsonData(res), content_type="application/json")
     else:
-        response = HttpResponse(outputJsonData("\"fail\"", code=404, message="use not exist"),content_type="application/json")
+        response = HttpResponse(outputJsonData("\"fail\"", code=404, message="use not exist"),
+                                content_type="application/json")
         return response
 
 
@@ -139,6 +152,10 @@ def register_device(request):
             user = User.objects.create(username=username, mac=mac, ip=ip, brand=brand, imei=imei,
                                        system_version=system_version, country=country, app_version=app_version,
                                        usedByte=0, remaining_bytes=totalbyte, uuid=uuid.uuid4())
+            uuidlabel = user.uuid
+
+            user = User.objects.get(uuid=uuidlabel)
+
             res = json.dumps(user.to_dict())
             return HttpResponse(outputJsonData(res), content_type="application/json")
 

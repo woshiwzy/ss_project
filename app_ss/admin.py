@@ -33,22 +33,21 @@ class HostAdmin(admin.ModelAdmin):
             'fields': ('alias',),
         }
          ]
-
     )
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('username', 'uuid', 'is_superuser',
-                    'alias_name', 'app_version', 'brand', 'imei', "system_version", 'enable', 'disableMessage',
-                    'disableMessageCn',
+    list_display = ('username', 'alias_name', 'uuid',
+                    'app_version', 'brand', "system_version", 'enable',
                     'country', 'mac', 'remaining_bytes', 'total_bytes', 'usedByte')
 
-    search_fields = ('uuidstr' 'brand', 'country', 'app_version')
+    search_fields = ('uuid' 'brand', 'country', 'app_version')
 
     fieldsets = (
         ['Main', {
             'fields': (
-                'username', 'uuid', 'brand', "system_version", 'enable', 'usedByte', 'remaining_bytes', 'is_superuser'),
+                'uuid', 'alias_name','enable', 'brand', "system_version", 'usedByte', 'remaining_bytes',
+                'is_superuser'),
         }],
         ['Advance', {
             'classes': ('collapse',),
@@ -66,20 +65,7 @@ class RewardHisAdmin(admin.ModelAdmin):
     # create_time = models.DateTimeField(u'create time', auto_now=True)
 
     list_display = ('uuid', 'username', 'descption', 'reward_size')
-
     search_fields = ('uuid', 'descption', 'reward_size', 'username')
-    #
-    # fieldsets = (
-    #     ['Main', {
-    #         'fields': ('uuid','descption','reward_size'),
-    #     }],
-    #     ['Advance', {
-    #         'classes': ('collapse',),
-    #         'fields': ('uuid'),
-    #     }
-    #      ]
-    #
-    # )
 
 
 class VPLogAdmin(admin.ModelAdmin):
