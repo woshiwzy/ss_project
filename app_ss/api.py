@@ -4,6 +4,7 @@ import json
 import math
 import uuid
 
+from django.db.models.functions import datetime
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
@@ -12,7 +13,7 @@ from models import Host, User, RewardHistory
 
 # 服务器列表
 def listservers(request):
-    list = Host.objects.filter(enable=True)
+    list = Host.objects.filter(enable=True,test=False)
     res = "["
     for r in range(0, list.__len__()):
         res = res + (json.dumps(list[r].to_dict()) + ("" if r == list.__len__() - 1 else ","))
@@ -79,26 +80,78 @@ def reward_traffic(request):
     descption = request.POST['descption']
     user = User.objects.get(uuid=uuid)
     if user:
-        if rewardsize > 200:  # reward should not above 200
-            rewardsize = 200
+
+        totalRewardToday = checktotalRewardToday(uuid)
+
+        print("已经获得奖励:" + str(totalRewardToday))
+
+        if totalRewardToday < 500:
+
+            if rewardsize > 100:  # reward should not above 200
+                rewardsize = 100
+            else:
+                rewardsize = rewardsize
+
+            print("===>>>>奖励：" + str(rewardsize) + " M")
+
+            now = datetime.datetime.now()
+            RewardHistory.objects.create(uuid=uuid, reward_size=rewardsize, descption=descption, username=user.username,
+                                         year=now.year, month=now.month, day=now.day).save()
+
+            user.remaining_bytes = user.remaining_bytes + (rewardsize * 1024)
+
+            if user.remaining_bytes > 0 and user.enable is False:
+                user.enable = True
+
+            user.save()
+            res = json.dumps(user.to_dict())
+            return HttpResponse(outputJsonData(res), content_type="application/json")
         else:
-            rewardsize = rewardsize
-
-        print("===>>>>奖励：" + str(rewardsize) + " M")
-
-        RewardHistory.objects.create(uuid=uuid, reward_size=rewardsize, descption=descption,
-                                     username=user.username).save()
-
-        user.remaining_bytes = user.remaining_bytes + (rewardsize * 1024)
-        user.save()
-        res = json.dumps(user.to_dict())
-        return HttpResponse(outputJsonData(res), content_type="application/json")
+            response = HttpResponse(outputJsonData("\"arrive max today\"", code=300),content_type="application/json")
+            return response
     else:
         response = HttpResponse(outputJsonData("\"fail\"", code=404, message="use not exist"),
                                 content_type="application/json")
         return response
 
 
+def checktotalRewardToday(uuid):
+    now = datetime.datetime.now()
+    rewards = RewardHistory.objects.filter(uuid=uuid, year=now.year, month=now.month, day=now.day)
+    print("reard his:" + str(rewards.__len__()))
+
+    totalReward = 0
+    for r in range(0, rewards.__len__()):
+        totalReward = totalReward + rewards[r].reward_size;
+    return totalReward
+
+
+@csrf_exempt
+def checkrewardHis(request):
+    # date = now().date() + timedelta(days=-1)  # 昨天
+    # date = now().date() + timedelta(days=0)  # 今天
+    # date = now().date() + timedelta(days=1)  # 明天
+    uuid = request.POST['uuid']
+
+    # now = timezone.now()
+    # start = now - datetime.timedelta(hours=23, minutes=59, seconds=59)
+
+    now = datetime.datetime.now()
+
+    rewards = RewardHistory.objects.filter(uuid=uuid, year=now.year, month=now.month, day=now.day)
+
+    print("reard his:" + str(rewards.__len__()))
+
+    res = "["
+    for r in range(0, rewards.__len__()):
+        res = res + (json.dumps(rewards[r].to_dict()) + ("" if r == rewards.__len__() - 1 else ","))
+    res = res + "]"
+
+    response = HttpResponse(outputJsonData(res), content_type="application/json")
+    return response
+
+
+# 消耗流量
 @csrf_exempt
 def cost_traffic(request):
     uuid = request.POST['uuid']
@@ -106,7 +159,7 @@ def cost_traffic(request):
     user = User.objects.get(uuid=uuid)
     print("===>>>>消耗：" + str(cost_size) + " KB")
     if user:
-        afterUpdate = long(user.remaining_bytes - cost_size)
+        afterUpdate = long(user.remaining_bytes - cost_size*1.2)#默认消耗1.2倍，减少误差
         if afterUpdate > 0:
             user.remaining_bytes = afterUpdate
             user.enable = True

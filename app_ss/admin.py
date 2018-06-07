@@ -16,7 +16,7 @@ from app_ss.models import VPLOG
 
 class HostAdmin(admin.ModelAdmin):
     list_display = (
-        'name', 'type', "enable", 'online', 'ip', "base64str", 'password', 'port', 'method', 'available_band',
+        'name', 'type', "enable", 'online', 'ip','test', "base64str", 'password', 'port', 'method', 'available_band',
         'total_band',
         "create_time")
     # inlines = [TagInline]  # Inline
@@ -25,7 +25,7 @@ class HostAdmin(admin.ModelAdmin):
     fieldsets = (
         ['Main', {
             'fields': (
-                'name', 'type', 'enable', 'online', 'ip', "base64str", 'password', 'port', 'method', 'available_band',
+                'name', 'type', 'enable', 'online','test', 'ip', "base64str", 'password', 'port', 'method', 'available_band',
                 'total_band'),
         }],
         ['Advance', {
@@ -64,8 +64,21 @@ class RewardHisAdmin(admin.ModelAdmin):
     # reward_size=models.IntegerField(default=0,verbose_name="奖励M数")
     # create_time = models.DateTimeField(u'create time', auto_now=True)
 
-    list_display = ('uuid', 'username', 'descption', 'reward_size')
+    list_display = ('uuid', 'username', 'descption', 'reward_size','year','month','day')
     search_fields = ('uuid', 'descption', 'reward_size', 'username')
+
+    fieldsets = (
+        ['Main', {
+            'fields': (
+                'uuid', 'username', 'descption', 'reward_size'),
+        }],
+        ['Advance', {
+            'classes': ('collapse',),
+            'fields': ('uuid', 'username', 'descption', 'reward_size','year','month','day'),
+        }
+         ]
+
+    )
 
 
 class VPLogAdmin(admin.ModelAdmin):

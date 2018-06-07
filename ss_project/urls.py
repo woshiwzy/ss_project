@@ -28,5 +28,5 @@ urlpatterns = [
     url(r'register_device',api.register_device),
     url(r'reward_traffic',api.reward_traffic),
     url(r'cost_traffic',api.cost_traffic),
-
+    url(r'checkrewardHis',api.checkrewardHis),
 ]
