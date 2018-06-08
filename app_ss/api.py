@@ -96,7 +96,7 @@ def reward_traffic(request):
 
             now = datetime.datetime.now()
             RewardHistory.objects.create(uuid=uuid, reward_size=rewardsize, descption=descption, username=user.username,
-                                         year=now.year, month=now.month, day=now.day).save()
+                                         year=now.year, month=now.month, day=now.day,brand=user.brand).save()
 
             user.remaining_bytes = user.remaining_bytes + (rewardsize * 1024)
 
@@ -201,10 +201,12 @@ def register_device(request):
             system_version = request.POST['system_version']
             country = request.POST['country']
             app_version = request.POST['app_version']
+
+            channel=request.POST['channel']
             totalbyte = 800 * 1024  # default 800M
             user = User.objects.create(username=username, mac=mac, ip=ip, brand=brand, imei=imei,
                                        system_version=system_version, country=country, app_version=app_version,
-                                       usedByte=0, remaining_bytes=totalbyte, uuid=uuid.uuid4())
+                                       usedByte=0, remaining_bytes=totalbyte, uuid=uuid.uuid4(),channel=channel)
             uuidlabel = user.uuid
 
             user = User.objects.get(uuid=uuidlabel)

@@ -37,16 +37,16 @@ class HostAdmin(admin.ModelAdmin):
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('username', 'alias_name', 'uuid',
-                    'app_version', 'brand', "system_version", 'enable',
+    list_display = ('username', 'alias_name', 'uuid','showad',
+                    'app_version', 'brand', "system_version", 'enable','channel',
                     'country', 'mac', 'remaining_bytes', 'total_bytes', 'usedByte')
 
-    search_fields = ('uuid' 'brand', 'country', 'app_version')
+    search_fields = ('uuid','brand','country', 'app_version')
 
     fieldsets = (
         ['Main', {
             'fields': (
-                'uuid', 'alias_name','enable', 'brand', "system_version", 'usedByte', 'remaining_bytes',
+                'uuid', 'alias_name','enable', 'brand','showad','channel' ,"system_version", 'usedByte', 'remaining_bytes',
                 'is_superuser'),
         }],
         ['Advance', {
@@ -64,17 +64,17 @@ class RewardHisAdmin(admin.ModelAdmin):
     # reward_size=models.IntegerField(default=0,verbose_name="奖励M数")
     # create_time = models.DateTimeField(u'create time', auto_now=True)
 
-    list_display = ('uuid', 'username', 'descption', 'reward_size','year','month','day')
-    search_fields = ('uuid', 'descption', 'reward_size', 'username')
+    list_display = ('uuid', 'username','brand', 'descption', 'reward_size','year','month','day')
+    search_fields = ('uuid','brand', 'descption', 'reward_size', 'username')
 
     fieldsets = (
         ['Main', {
             'fields': (
-                'uuid', 'username', 'descption', 'reward_size'),
+                'uuid', 'username','brand', 'descption', 'reward_size'),
         }],
         ['Advance', {
             'classes': ('collapse',),
-            'fields': ('uuid', 'username', 'descption', 'reward_size','year','month','day'),
+            'fields': ('year','month','day'),
         }
          ]
 

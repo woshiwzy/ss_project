@@ -33,11 +33,14 @@ class User(AbstractUser):
     personalMsg= models.CharField(max_length=200, verbose_name="私人消息", default='', blank=True)
 
     create_time = models.DateTimeField(u'create time', auto_now=True)
+    showad=models.BooleanField(default=True,verbose_name="是否显示广告")
+
+    channel= models.CharField(max_length=600, verbose_name="渠道", default='', blank=True)
 
     def to_dict(self):
         data = {}
         for f in self._meta.concrete_fields:
-            if f.name == 'enable' or f.name == 'usedByte' or f.name == 'total_bytes' or f.name == 'disableMessage' or f.name == 'uuid' or f.name == 'disableMessageCn' or f.name == 'personalMsg':
+            if f.name=='showad' or f.name == 'enable' or f.name == 'usedByte' or f.name == 'total_bytes' or f.name == 'disableMessage' or f.name == 'uuid' or f.name == 'disableMessageCn' or f.name == 'personalMsg':
                 data[f.name] = f.value_from_object(self)
             if f.name == 'remaining_bytes':
                 data[f.name] = f.value_from_object(self)
@@ -113,6 +116,7 @@ class RewardHistory(models.Model):
     descption = models.CharField(default="", max_length=100, verbose_name="奖励描述")
     reward_size = models.IntegerField(default=0, verbose_name="奖励M数")
     create_time = models.DateTimeField(u'create time', auto_now=True)
+    brand=models.CharField(default="", max_length=100, verbose_name="手机型号")
 
     year = models.IntegerField(default=0, verbose_name="获得奖励的年")
     month = models.IntegerField(default=0, verbose_name="获得奖励的年")
