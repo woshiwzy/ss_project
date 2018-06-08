@@ -51,7 +51,7 @@ class UserAdmin(admin.ModelAdmin):
         }],
         ['Advance', {
             'classes': ('collapse',),
-            'fields': ('system_version', 'disableMessage', 'disableMessageCn', 'country', 'mac'),
+            'fields': ('system_version', 'disableMessage', 'disableMessageCn', 'personalMsg','country', 'mac'),
         }
          ]
 

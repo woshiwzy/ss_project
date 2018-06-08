@@ -13,7 +13,7 @@ from models import Host, User, RewardHistory
 
 # 服务器列表
 def listservers(request):
-    list = Host.objects.filter(enable=True,test=False)
+    list = Host.objects.filter(enable=True,test=False).order_by('online')
     res = "["
     for r in range(0, list.__len__()):
         res = res + (json.dumps(list[r].to_dict()) + ("" if r == list.__len__() - 1 else ","))

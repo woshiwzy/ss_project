@@ -30,12 +30,14 @@ class User(AbstractUser):
     total_bytes = models.IntegerField(default=0, verbose_name="总流量(KB)", blank=True)
     usedByte = models.IntegerField(default=0, verbose_name="已经使用总流量(KB)", blank=True)
 
+    personalMsg= models.CharField(max_length=200, verbose_name="私人消息", default='', blank=True)
+
     create_time = models.DateTimeField(u'create time', auto_now=True)
 
     def to_dict(self):
         data = {}
         for f in self._meta.concrete_fields:
-            if f.name == 'enable' or f.name == 'usedByte' or f.name == 'total_bytes' or f.name == 'disableMessage' or f.name == 'uuid' or f.name == 'disableMessageCn':
+            if f.name == 'enable' or f.name == 'usedByte' or f.name == 'total_bytes' or f.name == 'disableMessage' or f.name == 'uuid' or f.name == 'disableMessageCn' or f.name == 'personalMsg':
                 data[f.name] = f.value_from_object(self)
             if f.name == 'remaining_bytes':
                 data[f.name] = f.value_from_object(self)
@@ -63,7 +65,7 @@ class Host(models.Model):
     ip = models.CharField(max_length=20, default='', blank=True)
     base64str = models.CharField(max_length=60, default='', verbose_name='base64全路径:', blank=True)
     port = models.IntegerField(default=-1, blank=True)
-    test=models.BooleanField(default=False, verbose_name="是否是测试线路")
+    test = models.BooleanField(default=False, verbose_name="是否是测试线路")
 
     create_time = models.DateTimeField(u'create time', auto_now=True)
 
@@ -115,6 +117,9 @@ class RewardHistory(models.Model):
     year = models.IntegerField(default=0, verbose_name="获得奖励的年")
     month = models.IntegerField(default=0, verbose_name="获得奖励的年")
     day = models.IntegerField(default=0, verbose_name="获得奖励的日")
+    hour = models.IntegerField(default=0, verbose_name="获得奖励小时")
+    munite = models.IntegerField(default=0, verbose_name="获得奖励分钟")
+    seconds = models.IntegerField(default=0, verbose_name="获得奖励秒钟")
 
     def to_dict(self):
         data = {}
