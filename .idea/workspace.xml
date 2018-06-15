@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e937169d-c269-4154-9865-9301399dead2" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/app_ss/TimerApp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_ss/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_ss/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_ss/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_ss/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_ss/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_ss/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ss_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ss_project/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss_project/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/ss_project/wsgi.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,15 +16,25 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/ss_project$tests.coverage" NAME="tests Coverage Results" MODIFIED="1528193294686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app_ss" />
+    <SUITE FILE_PATH="coverage/ss_project$timer_job.coverage" NAME="timer_job Coverage Results" MODIFIED="1529045434151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app_ss" />
+    <SUITE FILE_PATH="coverage/ss_project$TimerApp.coverage" NAME="TimerApp Coverage Results" MODIFIED="1529052415338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app_ss" />
+    <SUITE FILE_PATH="coverage/ss_project$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1529044482379" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ss_project" />
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ss_project/wsgi.py">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="TimerApp.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app_ss/TimerApp.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+              <folding>
+                <element signature="e#43#58#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -43,6 +51,7 @@
       <find>max_length</find>
       <find>available_band</find>
       <find>abs</find>
+      <find>uuidbrand</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -55,9 +64,13 @@
         <option value="$PROJECT_DIR$/app_ss/EnTool.py" />
         <option value="$PROJECT_DIR$/ss_project/urls.py" />
         <option value="$PROJECT_DIR$/ss_project/settings.py" />
-        <option value="$PROJECT_DIR$/app_ss/api.py" />
-        <option value="$PROJECT_DIR$/app_ss/models.py" />
         <option value="$PROJECT_DIR$/app_ss/admin.py" />
+        <option value="$PROJECT_DIR$/app_ss/models.py" />
+        <option value="$PROJECT_DIR$/ss_project/wsgi.py" />
+        <option value="$PROJECT_DIR$/app_ss/timer_job.py" />
+        <option value="$PROJECT_DIR$/app_ss/api.py" />
+        <option value="$PROJECT_DIR$/app_ss/auto_reward.log" />
+        <option value="$PROJECT_DIR$/app_ss/TimerApp.py" />
       </list>
     </option>
   </component>
@@ -71,8 +84,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2237" />
-    <option name="y" value="32" />
+    <option name="x" value="127" />
+    <option name="y" value="23" />
     <option name="width" value="1479" />
     <option name="height" value="990" />
   </component>
@@ -84,6 +97,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -96,20 +110,14 @@
               <item name="ss_project" type="462c0819:PsiDirectoryNode" />
               <item name="app_ss" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ss_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ss_project" type="462c0819:PsiDirectoryNode" />
-              <item name="ss_project" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="Mo&#9;FILE&#9;file:///Users/wangzy/workspace/workspacePython/ss_project/app_ss/models.py" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/wangzy/workspace/workspacePython/ss_project/app_ss/api.py&#10;Mo&#9;FILE&#9;file:///Users/wangzy/workspace/workspacePython/ss_project/app_ss/models.py" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -128,7 +136,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Django server.ss_project">
+  <component name="RunManager" selected="Python.TimerApp">
+    <configuration name="TimerApp" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ss_project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app_ss" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app_ss/TimerApp.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="tests" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ss_project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -143,6 +170,44 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app_ss/tests.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="timer_job" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ss_project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app_ss" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app_ss/timer_job.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="wsgi" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ss_project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ss_project" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ss_project/wsgi.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -174,9 +239,15 @@
     <list>
       <item itemvalue="Django server.ss_project" />
       <item itemvalue="Python.tests" />
+      <item itemvalue="Python.timer_job" />
+      <item itemvalue="Python.wsgi" />
+      <item itemvalue="Python.TimerApp" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.TimerApp" />
+        <item itemvalue="Python.timer_job" />
+        <item itemvalue="Python.wsgi" />
         <item itemvalue="Python.tests" />
       </list>
     </recent_temporary>
@@ -220,34 +291,49 @@
       <option name="project" value="LOCAL" />
       <updated>1528351604806</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="more perfect">
+      <created>1528436546983</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1528436546983</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add channel &amp; show ad control">
+      <created>1528464654695</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1528464654695</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2577" y="42" width="1479" height="990" extended-state="0" />
+    <frame x="127" y="23" width="1479" height="990" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="13" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.58770615" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.32785088" />
-      <window_info anchor="bottom" id="Run" order="9" visible="true" weight="0.43563217" />
-      <window_info anchor="bottom" id="Terminal" order="5" weight="0.41034484" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.30758524" />
+      <window_info anchor="bottom" id="Run" order="9" visible="true" weight="0.35402298" />
+      <window_info anchor="bottom" id="Terminal" order="5" weight="0.31954023" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.1433542" />
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="2" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.32988507" />
       <window_info anchor="right" id="SciView" order="0" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="10" weight="0.44407895" />
+      <window_info anchor="bottom" id="Debug" order="10" weight="0.44367817" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="7" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="8" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="0" weight="0.32969698" />
     </layout>
   </component>
@@ -262,7 +348,9 @@
     <MESSAGE value=" add reward api" />
     <MESSAGE value="optimzie amdin portal" />
     <MESSAGE value="complte traffic update" />
-    <option name="LAST_COMMIT_MESSAGE" value="complte traffic update" />
+    <MESSAGE value="more perfect" />
+    <MESSAGE value="add channel &amp; show ad control" />
+    <option name="LAST_COMMIT_MESSAGE" value="add channel &amp; show ad control" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -273,24 +361,39 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app_ss/api.py</url>
-          <line>211</line>
+          <line>213</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app_ss/api.py</url>
-          <line>156</line>
+          <line>137</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/app_ss/api.py</url>
-          <line>159</line>
+          <line>140</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app_ss/api.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="17" />
+      <option name="time" value="19" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app_ss/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2805">
+          <caret line="187" column="20" lean-forward="true" selection-start-line="187" selection-start-column="20" selection-end-line="187" selection-end-column="20" />
+          <folding>
+            <element signature="e#25#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ss_project/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -302,13 +405,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="400" selection-start-line="400" selection-end-line="400" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_ss/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -343,13 +439,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ss_project/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -357,10 +446,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app_ss/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="42" column="30" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ss_project/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="29" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ss_project/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ss_project/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="81" column="1" lean-forward="true" selection-start-line="81" selection-start-column="1" selection-end-line="81" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ss_project/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="46" lean-forward="true" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+          <folding>
+            <element signature="e#227#236#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_ss/timer_job.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#25#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_ss/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app_ss/EnTool.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state>
+          <caret selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -371,45 +511,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ss_project/settings.py">
+    <entry file="file://$PROJECT_DIR$/app_ss/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="40" column="1" lean-forward="true" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+        <state relative-caret-position="170">
+          <caret line="48" column="63" selection-start-line="48" selection-start-column="63" selection-end-line="48" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_ss/auto_reward.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app_ss/api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="15" column="71" selection-start-line="15" selection-start-column="71" selection-end-line="15" selection-end-column="71" />
+        <state relative-caret-position="218">
+          <caret line="138" column="33" lean-forward="true" selection-start-line="138" selection-start-column="3" selection-end-line="138" selection-end-column="33" />
           <folding>
             <element signature="e#25#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app_ss/models.py">
+    <entry file="file://$PROJECT_DIR$/app_ss/TimerApp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="32" column="15" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="15" />
+        <state relative-caret-position="188">
+          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
           <folding>
-            <element signature="e#24#63#0" expanded="true" />
+            <element signature="e#43#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_ss/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="53" column="92" selection-start-line="53" selection-start-column="92" selection-end-line="53" selection-end-column="92" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ss_project/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
