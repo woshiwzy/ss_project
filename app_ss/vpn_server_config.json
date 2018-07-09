@@ -1,0 +1,38 @@
+[
+  {
+    "name": "vps1",
+    "ip": "23.252.103.103",
+    "veid": "755716",
+    "api_key": "private_OyPT79iVOdyv779cn7hebjUw"
+  },
+  {
+    "name": "vps2",
+    "ip": "23.252.103.122",
+    "veid": "981366",
+    "api_key": "private_fIF0wAGnvKrdfhCQmFiU4p80"
+  },
+  {
+    "name": "vps3",
+    "ip": "23.252.103.122",
+    "veid": "988929",
+    "api_key": "private_ZSZN4IBebO3WXfP1zsAqkpRM"
+  },
+  {
+    "name": "vps4",
+    "ip": "68.168.143.207",
+    "veid": "997077",
+    "api_key": "private_7tQYGEi60BEvOCuW1mHy21Hg"
+  },
+   {
+    "name": "vps5",
+    "ip": "68.168.136.97",
+    "veid": "997081",
+    "api_key": "private_NRZxmLWJV64W3zXZRXv4Bp1g"
+  }
+]
+
+
+
+
+
+

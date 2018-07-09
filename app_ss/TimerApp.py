@@ -48,5 +48,5 @@ if __name__ == '__main__':
     print "开启定时任务========"
 
     scheduler = BlockingScheduler()
-    scheduler.add_job(update, 'interval', seconds=5)
+    scheduler.add_job(update, 'interval', seconds=1*60*60*24)
     scheduler.start()

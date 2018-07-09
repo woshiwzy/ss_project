@@ -29,4 +29,5 @@ urlpatterns = [
     url(r'reward_traffic',api.reward_traffic),
     url(r'cost_traffic',api.cost_traffic),
     url(r'checkrewardHis',api.checkrewardHis),
+    url(r'ava',api.getava_data),
 ]
